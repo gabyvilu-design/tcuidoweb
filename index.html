@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>T-cuido | Niñeras de Mascotas</title>
+
+<style>
+
+body{
+font-family: Arial, sans-serif;
+margin:0;
+background:#f8f8f8;
+color:#333;
+}
+
+header{
+background:#7c6db5;
+color:white;
+text-align:center;
+padding:40px 20px;
+}
+
+header img{
+width:140px;
+}
+
+h1{
+margin:10px 0;
+}
+
+section{
+padding:40px 20px;
+max-width:1000px;
+margin:auto;
+}
+
+.servicios{
+display:flex;
+gap:20px;
+flex-wrap:wrap;
+}
+
+.card{
+background:white;
+padding:20px;
+border-radius:10px;
+flex:1;
+min-width:250px;
+box-shadow:0 3px 10px rgba(0,0,0,0.1);
+}
+
+button{
+background:#1aa34a;
+color:white;
+border:none;
+padding:12px 18px;
+border-radius:8px;
+cursor:pointer;
+margin-top:10px;
+}
+
+button:hover{
+background:#14853b;
+}
+
+.galeria{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:10px;
+}
+
+.galeria img{
+width:100%;
+border-radius:10px;
+}
+
+.equipo img{
+width:100%;
+border-radius:12px;
+max-width:500px;
+}
+
+footer{
+text-align:center;
+background:#7c6db5;
+color:white;
+padding:20px;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<img src="logo.png">
+<h1>T-cuido</h1>
+<p>Niñeras de mascotas en Turrialba</p>
+
+</header>
+
+<section>
+
+<h2>Sobre nosotros</h2>
+
+<p>
+En T-cuido somos amantes de los animales con más de 3 años de experiencia.
+También fuimos rescatistas, por lo que entendemos el cuidado, la adaptación
+y el bienestar de cada mascota.
+</p>
+
+<p>
+Nuestro objetivo es ofrecer un lugar seguro, amoroso y responsable para
+perros y gatos.
+</p>
+
+</section>
+
+<section>
+
+<h2>Servicios</h2>
+
+<div class="servicios">
+
+<div class="card">
+
+<h3>🐶 Guardería</h3>
+
+<p>
+Servicio de cuidado de mascotas por periodos acordados.
+</p>
+
+<p>
+Antes de aceptar una mascota realizamos una entrevista previa por WhatsApp.
+En algunos casos puede hacerse una visita o una visita previa de la mascota.
+</p>
+
+<button onclick="cotizarGuarderia()">
+Solicitar cotización
+</button>
+
+</div>
+
+<div class="card">
+
+<h3>🏠 Cuido a domicilio</h3>
+
+<p>
+Cuidamos a tu mascota directamente en tu hogar dentro de nuestro alcance en
+Turrialba y alrededores.
+</p>
+
+<button onclick="cotizarDomicilio()">
+Solicitar cotización
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<h2>Solicitar cotización</h2>
+
+<p>Para guardería necesitamos los siguientes datos:</p>
+
+<input id="llegada" type="datetime-local"><br><br>
+<input id="salida" type="datetime-local"><br><br>
+<input id="cantidad" placeholder="Cantidad de animales"><br><br>
+<input id="peso" placeholder="Peso aproximado de cada uno"><br><br>
+
+<button onclick="enviarGuarderia()">
+Enviar cotización por WhatsApp
+</button>
+
+</section>
+
+<section class="equipo">
+
+<h2>Nuestro equipo</h2>
+
+<img src="equipo.jpg">
+
+<p><b>Gabi</b>, <b>Diana</b> y <b>Daria</b> forman el equipo de niñeras de
+T-cuido, dedicadas al bienestar, cuidado y amor por las mascotas.</p>
+
+</section>
+
+<section>
+
+<h2>Galería</h2>
+
+<div class="galeria">
+
+<img src="foto1.jpg">
+<img src="foto2.jpg">
+<img src="foto3.jpg">
+
+</div>
+
+<p>Podrás agregar más fotos fácilmente copiándolas en la carpeta del sitio.</p>
+
+</section>
+
+<footer>
+
+<p>📱 WhatsApp Guardería: 8822-8119</p>
+<p>📱 WhatsApp Domicilio: 8945-4974</p>
+
+<p>Síguenos en redes sociales</p>
+
+<p>
+Instagram: tcuidoturrialba<br>
+Facebook: T-cuido Niñeras de Mascotas
+</p>
+
+</footer>
+
+<script>
+
+function cotizarDomicilio(){
+let url="https://wa.me/50689454974?text=Hola%20quiero%20cotizar%20cuido%20a%20domicilio%20con%20T-cu%C3%ADdo";
+window.open(url);
+}
+
+function cotizarGuarderia(){
+window.scrollTo(0,600);
+}
+
+function enviarGuarderia(){
+
+let llegada=document.getElementById("llegada").value
+let salida=document.getElementById("salida").value
+let cantidad=document.getElementById("cantidad").value
+let peso=document.getElementById("peso").value
+
+let mensaje=`Hola, quiero cotizar guardería en T-cuido.
+
+Fecha llegada: ${llegada}
+Fecha salida: ${salida}
+Cantidad animales: ${cantidad}
+Peso aproximado: ${peso}`
+
+let url="https://wa.me/50688228119?text="+encodeURIComponent(mensaje)
+
+window.open(url)
+
+}
+
+</script>
+
+</body>
+</html>
